@@ -1,11 +1,7 @@
 #!/bin/bash
 
-# Up from scripts dir
-cd ..
-
 here="$(cd "$(dirname "$0")"; pwd)"
-dotfilesDir="$here/dotfiles/dotfiles"
-echo $here
+dotfilesDir="$here/dotfiles"
 
 function linkDotfile {
   dest="${HOME}/${1}"

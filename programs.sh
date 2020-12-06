@@ -7,6 +7,8 @@ function install {
 
 # TODO: Do it automatically for every folder in programs/
 install docker
+install dslr
 install git
-install vscode
+install lotion
 install oh-my-zsh
+install vscode

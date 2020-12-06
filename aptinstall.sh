@@ -7,19 +7,24 @@ if [ $? -ne 0 ]; then
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 fi
 
-# Get Github CLI
+# Get Github CLI source
 which gh &> /dev/null
 if [ $? -ne 0 ]; then
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
   sudo apt-add-repository https://cli.github.com/packages
 fi
 
+sudo apt install software-properties-common
+
+function getPPA {
+  yes | sudo add-apt-repository ppa:$1
+}
+
+
 # Get Peek PPA
-which peek &> /dev/null
-if [ $? -ne 0 ]; then
-  sudo apt install software-properties-common
-  yes | sudo add-apt-repository ppa:peek-developers/stable
-fi
+getPPA peek-developers/stable
+# Get racket PPA
+getPPA plt/racket
 
 sudo apt update
 
@@ -43,7 +48,14 @@ install xclip
 install postgresql-client
 install yarn
 install gh
+install racket
 
 install slack snap "slack --classic"
 
 install peek
+
+# DSLR Stuff
+install gphoto2 
+install v4l2loopback-utils 
+install v4l2loopback-dkms 
+install ffmpeg
