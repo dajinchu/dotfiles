@@ -15,3 +15,9 @@ sudo add-apt-repository \
 sudo apt update
 sudo apt install -y docker-ce docker-ce-cli containerd.io
 sudo docker run hello-world
+sudo usermod -aG docker "$USER"
+
+# Get Docker compose
+curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+chmod +x ~/docker-compose
+sudo mv ~/docker-compose /usr/local/bin/docker-compose

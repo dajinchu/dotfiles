@@ -23,6 +23,7 @@ install xclip
 install slack snap "slack --classic"
 
 
+# Get Yarn apt source
 which $1 &> /dev/null
 if [ $? -ne 0 ]; then
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
