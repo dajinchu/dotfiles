@@ -8,7 +8,7 @@ function install {
   if [ $? -ne 0 ]; then
     echo "Installing: ${1}..."
     source=${2:-apt}
-    yes | sudo $source install ${3:-1}
+    yes | sudo $source install ${3:-$1}
   else
     echo "Already installed: ${1}"
   fi
@@ -19,6 +19,7 @@ install git
 install zsh
 install vim
 install xclip
+install postgresql-client
 
 install slack snap "slack --classic"
 
