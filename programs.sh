@@ -10,5 +10,6 @@ install docker
 install dslr
 install git
 install lotion
+install nodejs
 install oh-my-zsh
 install vscode
